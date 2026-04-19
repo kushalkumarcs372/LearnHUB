@@ -176,14 +176,6 @@ For maintainability and security:
 
 ---
 
-## 🚀 Deployment (Suggested)
-
-* Frontend: Vercel
-* Backend: Render / Railway
-* Database: Managed MySQL instance
-
----
-
 ## 🧠 Summary
 
 LearnHUB demonstrates a complete full-stack architecture integrating a modern frontend with a secure and scalable backend, designed to simulate real-world learning platform workflows.
