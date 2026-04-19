@@ -163,16 +163,6 @@ REACT_APP_API_BASE_URL=https://your-backend-domain/api
 
 ---
 
-## 📄 Documentation
-
-Detailed project documentation is available in:
-
-```
-docs/LearnHub_Project_Report.pdf
-```
-
----
-
 ## ⚠️ Database Configuration Note
 
 The backend requires valid database credentials at runtime.
