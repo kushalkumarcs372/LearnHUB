@@ -1,16 +1,26 @@
--- Create a dedicated MySQL user for LearnHub (recommended; avoid using root).
--- Run in MySQL shell as an admin user.
+-- =========================================
+-- LearnHUB Database Setup Script
+-- =========================================
+-- Purpose:
+-- Creates database and a dedicated user for the application
+-- (Recommended instead of using root user)
+--
+-- Usage:
+-- Run in MySQL as admin/root user
+-- Then update credentials in application.properties or .env
+-- =========================================
 
--- Create DB if missing
+-- Create database
 CREATE DATABASE IF NOT EXISTS learnhub;
 
--- Create user (change password!)
+-- Create user (change password before use)
 CREATE USER IF NOT EXISTS 'learnhub_app'@'localhost' IDENTIFIED BY 'CHANGE_ME_STRONG_PASSWORD';
 
 -- Grant permissions
 GRANT ALL PRIVILEGES ON learnhub.* TO 'learnhub_app'@'localhost';
+
+-- Apply changes
 FLUSH PRIVILEGES;
 
--- Verify
+-- Verify user
 SELECT user, host FROM mysql.user WHERE user = 'learnhub_app';
-
