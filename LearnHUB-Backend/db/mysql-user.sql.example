@@ -1,0 +1,16 @@
+-- Create a dedicated MySQL user for LearnHub (recommended; avoid using root).
+-- Run in MySQL shell as an admin user.
+
+-- Create DB if missing
+CREATE DATABASE IF NOT EXISTS learnhub;
+
+-- Create user (change password!)
+CREATE USER IF NOT EXISTS 'learnhub_app'@'localhost' IDENTIFIED BY 'CHANGE_ME_STRONG_PASSWORD';
+
+-- Grant permissions
+GRANT ALL PRIVILEGES ON learnhub.* TO 'learnhub_app'@'localhost';
+FLUSH PRIVILEGES;
+
+-- Verify
+SELECT user, host FROM mysql.user WHERE user = 'learnhub_app';
+

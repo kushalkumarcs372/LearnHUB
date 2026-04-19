@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# LearnHub Frontend (CRA)
+
+## Backend API
+
+- Development: the app calls `/api/*` and relies on `package.json.proxy` to forward to `http://localhost:8080`.
+- Production (Vercel): set `REACT_APP_API_BASE_URL` to your backend base URL (must include `/api`), e.g. `https://your-backend.com/api`.
+  - See `.env.example`.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

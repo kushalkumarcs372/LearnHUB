@@ -1,8 +1,18 @@
+import { act } from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+jest.mock('./services/courseService', () => ({
+  courseService: {
+    getAllCourses: jest.fn(() => Promise.resolve({ data: [] })),
+    getAllCategories: jest.fn(() => Promise.resolve({ data: [] })),
+  },
+}));
+
+test('renders LearnHub navbar', async () => {
+  await act(async () => {
+    render(<App />);
+    await Promise.resolve();
+  });
+  expect(screen.getByText('LearnHub')).toBeInTheDocument();
 });
