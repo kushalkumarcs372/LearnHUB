@@ -1,39 +1,35 @@
 # 🚀 LearnHUB – Full Stack Learning Platform
 
-LearnHUB is a full-stack web application designed to support structured online learning through course delivery, assessment, and instructor-student interaction. The system follows a modular architecture with a React-based frontend and a Spring Boot backend, communicating via REST APIs.
+LearnHUB is a full-stack web application for structured online learning, supporting course management, assessments, and instructor–student interaction. The system follows a modular architecture with a React frontend and a Spring Boot backend communicating via REST APIs.
 
 ---
 
 ## 🧩 Tech Stack
 
 **Frontend**
-
-* React (Create React App)
-* Context API for state management
-* Axios for API communication
+- React (Create React App)
+- Context API
+- Axios
 
 **Backend**
-
-* Spring Boot
-* Spring Security with JWT authentication
-* RESTful API design
+- Spring Boot
+- Spring Security (JWT)
+- RESTful APIs
 
 **Database**
-
-* MySQL (primary)
-* H2 (development/testing)
+- MySQL (primary)
+- H2 (development/demo)
 
 ---
 
 ## 📁 Project Structure
+
 
 ```
 LearnHUB/
 ├── LearnHUB-Backend/     # Spring Boot backend
 ├── src/                  # React source code
 ├── public/               # Static assets
-├── docs/                 # Project documentation
-├── tools/                # Utility scripts
 ├── README.md
 └── .gitignore
 ```
@@ -42,12 +38,11 @@ LearnHUB/
 
 ## 🚀 Getting Started
 
-### Clone the Repository
+### Clone
 
 ```bash
 git clone https://github.com/kushalkumarcs372/LearnHUB.git
 cd LearnHUB
-```
 
 ---
 
