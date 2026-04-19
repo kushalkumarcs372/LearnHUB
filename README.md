@@ -1,6 +1,6 @@
 # 🚀 LearnHUB – Full Stack Learning Platform
 
-LearnHUB is a full-stack web application designed to facilitate structured online learning through course management, instructor-led content delivery, and student engagement features. The system is built with a clear separation between frontend and backend services, following standard web architecture practices.
+LearnHUB is a full-stack web application designed to support structured online learning through course delivery, assessment, and instructor-student interaction. The system follows a modular architecture with a React-based frontend and a Spring Boot backend, communicating via REST APIs.
 
 ---
 
@@ -15,13 +15,13 @@ LearnHUB is a full-stack web application designed to facilitate structured onlin
 **Backend**
 
 * Spring Boot
-* Spring Security with JWT-based authentication
+* Spring Security with JWT authentication
 * RESTful API design
 
 **Database**
 
 * MySQL (primary)
-* H2 (for development and testing)
+* H2 (development/testing)
 
 ---
 
@@ -29,8 +29,8 @@ LearnHUB is a full-stack web application designed to facilitate structured onlin
 
 ```
 LearnHUB/
-├── LearnHUB-Backend/     # Spring Boot backend service
-├── src/                  # React application source
+├── LearnHUB-Backend/     # Spring Boot backend
+├── src/                  # React source code
 ├── public/               # Static assets
 ├── docs/                 # Project documentation
 ├── tools/                # Utility scripts
@@ -53,7 +53,7 @@ cd LearnHUB
 
 ## ⚙️ Backend Setup
 
-The backend service requires database and authentication configuration through environment variables or local configuration profiles.
+The backend requires database and authentication configuration at runtime.
 
 ### Run the Backend
 
@@ -62,9 +62,11 @@ cd LearnHUB-Backend
 mvn spring-boot:run
 ```
 
-### Configuration Options
+---
 
-**Environment Variables (recommended)**
+### Configuration
+
+Provide the following environment variables:
 
 ```
 SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/learnhub
@@ -75,22 +77,25 @@ JWT_SECRET=your_secure_secret_key
 JWT_EXPIRATION_MS=86400000
 ```
 
-**Local Profile (not committed to version control)**
+---
 
-1. Copy:
+### Alternative Modes
+
+**Local Profile (development)**
 
 ```
+Copy:
 src/main/resources/application-local.properties.example
 → application-local.properties
 ```
 
-2. Run with profile:
+Run:
 
 ```bash
 mvn spring-boot:run "-Dspring-boot.run.profiles=local"
 ```
 
-**In-Memory Mode (H2 for quick testing)**
+**H2 Mode (quick testing, no MySQL)**
 
 ```bash
 mvn spring-boot:run "-Dspring-boot.run.profiles=h2"
@@ -105,7 +110,7 @@ npm install
 npm start
 ```
 
-The application will be available at:
+Application runs at:
 
 ```
 http://localhost:3000
@@ -115,8 +120,8 @@ http://localhost:3000
 
 ## 🔗 API Integration
 
-* Development mode uses a proxy to forward `/api` requests to the backend (`http://localhost:8080`)
-* In production, configure:
+* Development: `/api` requests are proxied to `http://localhost:8080`
+* Production requires:
 
 ```
 REACT_APP_API_BASE_URL=https://your-backend-domain/api
@@ -126,56 +131,56 @@ REACT_APP_API_BASE_URL=https://your-backend-domain/api
 
 ## 🔐 Security & Configuration
 
-* Sensitive configuration is externalized via environment variables
+* Authentication handled using JWT tokens
+* Sensitive configuration managed via environment variables
 * `.env` files are excluded from version control
-* JWT is used for authentication and session handling
-* It is recommended to use a dedicated database user with restricted privileges
+* Recommended to use a dedicated database user instead of root
 
 ---
 
-## 📊 Features Overview
+## 📊 Core Features
 
 **Authentication**
 
 * User registration and login
-* JWT-based session management
+* Token-based session management
 * Password reset support
 
-**Student Module**
+**Student Features**
 
 * Course browsing and enrollment
-* Progress tracking
+* Learning progress tracking
 * Quiz participation
 * Certificate access
 
-**Instructor Module**
+**Instructor Features**
 
 * Course creation and management
-* Content and material upload
-* Quiz and assessment management
+* Lecture and material upload
+* Quiz and evaluation management
 * Handling student requests
 
 **System Features**
 
-* Payment handling
-* Certificate verification
-* Analytics and statistics
+* Payment simulation for guided sessions
+* Certificate generation and verification
+* Basic analytics and statistics
 
 ---
 
 ## ⚠️ Database Configuration Note
 
-The backend requires valid database credentials at runtime.
-If the application fails to initialize, ensure that the datasource configuration is correctly provided through environment variables or local configuration files.
+The backend depends on valid datasource configuration at startup.
+If initialization fails, verify that database credentials are correctly supplied via environment variables or local configuration.
 
 For maintainability and security:
 
-* Use a dedicated database user instead of the root account
-* Avoid embedding credentials directly in source files
+* Use a dedicated database user
+* Avoid embedding credentials in source code
 * Keep environment-specific configurations outside version control
 
 ---
 
 ## 🧠 Summary
 
-LearnHUB demonstrates a complete full-stack architecture integrating a modern frontend with a secure and scalable backend, designed to simulate real-world learning platform workflows.
+LearnHUB represents a modular full-stack system integrating frontend and backend components through well-defined APIs, implementing authentication, course workflows, and evaluation mechanisms typical of real-world learning platforms.
